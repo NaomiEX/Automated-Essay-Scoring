@@ -20,6 +20,7 @@ The dataset used for this project was obtained from a [popular Kaggle competitio
 ![SVM Quadratic Kappa Score](./Results/svm_qwk.JPG)
 ### RFC model (Confusion Matrix)
 Note: Performed oversampling, thus total number of samples is greater in comparison to the SVM Confusion Matrix, the goal here is to correctly classify infrequent scores (1 and 6)
+
 ![RFC Confusion Matrix](./Results/rfc_confusion_matrix.JPG)
 ### RFC model (Quadratic Kappa Score)
 Note: Much better QWK score in comparison to the SVM model!
