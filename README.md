@@ -4,6 +4,7 @@ Automated Essay Scoring
 ## Table of contents
 * [Introduction](#introduction)
 * [Dataset](#dataset)
+* [Kaggle Placement](#kaggle-results)
 * [Results](#results)
 * [Libraries](#libraries)
 
@@ -12,6 +13,11 @@ Preprocessed data derived from a set of essays (feature selection, normalization
 
 ## Dataset
 The dataset used for this project was obtained from a [popular Kaggle competition](https://www.kaggle.com/c/asap-aes) sponsored by the Hewlett Foundation.
+
+## Kaggle Results
+With the model built from the Random Forest Classifier, I **won the Kaggle competition with 172 participating teams**.
+[Full leaderboard](https://www.kaggle.com/c/mum-fit1043-s1-2021/leaderboard)
+![Leaderboard](./Results/kaggle_results.JPG)
 
 ## Results
 ### SVM model (Confusion Matrix)
@@ -25,6 +31,7 @@ Note: Performed oversampling, thus total number of samples is greater in compari
 ### RFC model (Quadratic Kappa Score)
 Note: Much better QWK score in comparison to the SVM model!
 ![RFC Quadratic Kappa Score](./Results/rfc_qwk.JPG)
+
 
 ## Libraries
 * scikit-learn (sklearn)
