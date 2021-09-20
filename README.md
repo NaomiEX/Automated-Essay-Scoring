@@ -29,12 +29,18 @@ It includes the following information for each essay (and more):
 ## Process
 
 ### Analysis of dataset
-PLACE IMAGE HERE
+The following table displays descriptive statistics for each of the provided essay features. Things of note:
+* The average score of an essay is 3.4 and the median is 3.0. As scores range from 0 to 6, this result provides some evidence that the scores are normally distributed.
+* There is a very large range of 642 between the essay with the most number of sentences and the essay with the least number of sentences
+* There is a very large range of 302 between the essay with the highest average number of words per sentence and the essay with the lowest number of words per sentence.
+<img src="./Results/data_stats_merged.JPG"/>
 
 ### Feature Selection
 We are provided with 18 features from the dataset, some of which clearly have no association with their score (for example: essayid). Thus I perform feature selection to keep only the most relevant features and to speed up training.
 
 This feature selection is done with the help of ANOVA (Analysis Of Variance). For each of the features, I compute the ANOVA F-value. The results are shown below:
+
+<img src="./Results/F-values.JPG" width="500"/>
 
 
 With a bit of experimentation, I obtained the best results keeping only those features with an F-value above 100 which are:
@@ -49,8 +55,9 @@ With a bit of experimentation, I obtained the best results keeping only those fe
 Normalization/Scaling is an important step in preprocessing especially when different features have vastly different ranges and may unfairly dominate over other features. I used the min-max scaler to perform scaling (scaled to [0,1]) as it preserves the shape of the original distribution while avoiding significantly altering the information embedded in the original data.
 
 ### Oversampling
-One thing I noticed about the dataset is the rarity of essays scored 1 or 6, i.e. either extremes. This is to be expected as the distribution of grades typicaly follow a bell curve, or normal distribution. This resulted in the model practically never predicting 1s or 6s as they happen so rarely, as shown in the frequency count below:
-PLACE IMAGE HERE
+One thing I noticed about the dataset is the rarity of essays scored 1 or 6, i.e. either extremes. This is to be expected as the distribution of grades typicaly follow a bell curve, or normal distribution. This resulted in the model practically never predicting 1s or 6s as they happen so rarely, as shown in the frequency count below which shows that there are 583 essays that scored a 4 which makes up 43.8% of the total essays whereas there are only a mere 4 essays with a score of 6, this amounts to 0.45% of total essays.
+
+<img src="Results/counter.JPG" width="500" />
 
 To combat this I can oversample these minority classes by using the Syntethic Minority Oversampling Technique (SMOTE) which synthesizes new examples for these minority classes from existing ones. We can see the results of this oversampling in the [confusion matrix for the Random Forest Classifier](#confusion-matrix-for-random-forest-classifier)
 
@@ -61,7 +68,8 @@ Hyperparameter Tuning - tested accuracy of model for various combinations of hyp
 * gamma - the kernel coefficient, it decides the level of influence of a single example
 
 Combination that led to the highest accuracy:
-PLACE IMAGE HERE
+
+<img src="Results/opt_svm.JPG" width="500" />
 
 ### Building RFC Model
 Hyperparameter Tuning - similar to building the SVM model, here I look for the best combination of hyperparameters:
@@ -69,7 +77,8 @@ Hyperparameter Tuning - similar to building the SVM model, here I look for the b
 * max_depth - the maximum depth of a tree
 
 Combination that led to the highest accuracy:
-PLACE IMAGE HERE
+
+<img src="Results/opt_rfc.JPG" width="500" />
 
 ## Kaggle Results
 With the model built from the Random Forest Classifier, I **won the Kaggle competition with 172 participating teams**.
