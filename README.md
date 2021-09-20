@@ -4,6 +4,7 @@ Automated Essay Scoring
 ## Table of contents
 * [About](#about)
 * [Dataset](#dataset)
+* [Process](#process)
 * [Kaggle Placement](#kaggle-results)
 * [Results](#results)
 * [Libraries](#libraries)
@@ -25,8 +26,10 @@ It includes the following information for each essay (and more):
 * synonymous words
 * stemmed, unstemmed word count
 
-### Analysis of dataset
+## Process
 
+### Analysis of dataset
+PLACE IMAGE HERE
 
 ### Feature Selection
 We are provided with 18 features from the dataset, some of which clearly have no association with their score (for example: essayid). Thus I perform feature selection to keep only the most relevant features and to speed up training.
